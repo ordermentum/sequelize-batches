@@ -1,19 +1,19 @@
 const Sequelize = require("sequelize");
 
-async function* batch(query = {}, options = { size: 1000 }) {
+async function* batch(query = { batchSize: 1000 }) {
   const count = await this.count(query);
 
   if (count === 0) {
     return false;
   }
 
-  const pages = Math.max(Math.round(count / options.size), 1);
+  const pages = Math.max(Math.round(count / query.batchSize), 1);
   let page = 1;
 
   const params = Object.assign({}, query);
   while (page <= pages) {
-    params.offset = (page - 1) * options.size;
-    params.limit = options.size;
+    params.offset = (page - 1) * query.batchSize;
+    params.limit = query.batchSize;
 
     yield await this.findAll(params);
     page = page + 1;

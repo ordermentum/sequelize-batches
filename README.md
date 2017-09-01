@@ -22,7 +22,10 @@ require('sequelize-batches');
 Below example queries using the new syntax
 
 ```javascript
-for await (const posts of Post.batch({ userId: 1 }, { size: 10000 })) {
+
+for await (const posts of Post.batch({
+  where: { userId: 1 },
+  batchSize: 1000 })) {
   for (const post of posts) {
     console.log(post);
   }

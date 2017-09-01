@@ -32,13 +32,13 @@ const test = async () => {
   
   await Post.bulkCreate(rows);
 
-  for await (const posts of Post.batch({}, { size: 10 })) {
+  for await (const posts of Post.batch({ batchSize: 1000 })) {
     for (const post of posts) {
       console.log(post.title);
     }
   }
 
-  for await (const posts of Post.batch({ where: { userId: 1 } }, { size: 10 })) {
+  for await (const posts of Post.batch({ where: { userId: 1 }, batchSize: 1000 })) {
     for (const post of posts) {
       console.log(`${post.userId}: ${post.title}`);
     }
