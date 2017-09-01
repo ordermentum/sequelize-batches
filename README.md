@@ -4,6 +4,23 @@
 
 works with Node 8.4.0 ```node --harmony-async-iteration```
 
+## Install
+
+```bash
+yarn add sequelize-batches
+```
+
+Below where you have imported sequelize add sequelize-batches
+
+```javascript
+const Sequelize = require('sequelize');
+require('sequelize-batches');
+```
+
+## Usage
+
+Below example queries using the new syntax
+
 ```javascript
 for await (const posts of Post.batch({ userId: 1 }, { size: 10000 })) {
   for (const post of posts) {

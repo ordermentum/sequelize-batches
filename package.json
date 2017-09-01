@@ -1,6 +1,11 @@
 {
   "name": "sequelize-batches",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "homepage": "https://github.com/ordermentum/sequelize-batches",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ordermentum/sequelize-batches.git"
+  },
   "description": "Sequelize Async Interator Support",
   "main": "src/index.js",
   "scripts": {
