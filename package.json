@@ -4,7 +4,7 @@
   "description": "Sequelize Async Interator Support",
   "main": "src/index.js",
   "scripts": {
-    "test": "node --harmony-async-iteration test/"
+    "test": "node --harmony-async-iteration test/index_test.js"
   },
   "author": "John D'Agostino",
   "license": "Apache-2.0",
