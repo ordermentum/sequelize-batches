@@ -1,14 +1,19 @@
 {
   "name": "sequelize-batches",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sequelize Async Interator Support",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --harmony-async-iteration test/"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "John D'Agostino",
+  "license": "Apache-2.0",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.53.1",
+    "prettier": "^1.6.1",
     "sqlite3": "^3.1.9"
   },
   "dependencies": {

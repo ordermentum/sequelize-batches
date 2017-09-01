@@ -1,8 +1,7 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 
-
-async function* batch(query = { }, options = { size: 1000 }) {
-  const count = await this.count(options);
+async function* batch(query = {}, options = { size: 1000 }) {
+  const count = await this.count(query);
 
   if (count === 0) {
     return false;
@@ -21,7 +20,7 @@ async function* batch(query = { }, options = { size: 1000 }) {
   }
 }
 
-async function* iterator(query = { }) {
+async function* iterator(query = {}) {
   const rows = await this.findAll(query);
   for (const row of rows) {
     yield row;
