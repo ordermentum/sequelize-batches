@@ -6,8 +6,8 @@ async function* batch(query = { batchSize: 1000 }) {
   if (count === 0) {
     return false;
   }
-
-  const pages = Math.max(Math.round(count / query.batchSize), 1);
+  const pagesRemainder = (count % query.batchSize) ? 1 : 0;
+  const pages = Math.floor(count / query.batchSize) + pagesRemainder;
   let page = 1;
 
   const params = Object.assign({}, query);
